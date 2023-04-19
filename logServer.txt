@@ -1,71 +1,29 @@
-2023-04-19 19:10:46: Receive a message from KHOI:
-2023-04-19 19:10:46: KHOI join chat!
-2023-04-19 19:10:51: Receive a message from HAO:
-2023-04-19 19:10:51: HAO join chat!
-2023-04-19 19:10:57: Receive a message from NHUT:
-2023-04-19 19:10:57: NHUT join chat!
-2023-04-19 19:11:00: Receive a message from MINH:
-2023-04-19 19:11:00: MINH join chat!
-2023-04-19 19:11:03: Receive a message from LAN:
-2023-04-19 19:11:04: LAN join chat!
-2023-04-19 19:11:15: Receive a message from KHOI: hello
-2023-04-19 19:11:15: Broadcast message complete !
-2023-04-19 19:11:22: Receive a message from HAO: hi
-2023-04-19 19:11:22: Broadcast message complete !
-2023-04-19 19:11:42: Receive a message from NHUT: how are you ?
-2023-04-19 19:11:42: Broadcast message complete !
-2023-04-19 19:11:50: Receive a message from MINH: fine thannks
-2023-04-19 19:11:50: Broadcast message complete !
-2023-04-19 19:11:58: Receive a message from LAN: me too
-2023-04-19 19:11:58: Broadcast message complete !
-2023-04-19 19:12:07: Received a Like Request
-2023-04-19 19:12:22: Received a Like Request
-2023-04-19 19:12:22: User can't like message himself!
-2023-04-19 19:12:28: Received a Like Request
-2023-04-19 19:12:36: Received a Like Request
-2023-04-19 19:12:44: Received a Like Request
-2023-04-19 19:12:53: Received a Like Request
-2023-04-19 19:12:58: Receive a message from LAN: E 3
-2023-04-19 19:12:58: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:13:02: Received a Like Request
-2023-04-19 19:13:08: Received a Like Request
-2023-04-19 19:13:14: Received a Like Request
-2023-04-19 19:13:25: Receive a message from HAO: thanks
-2023-04-19 19:13:25: Broadcast message complete !
-2023-04-19 19:13:31: Receive a message from KHOI: your welcome
-2023-04-19 19:13:31: Broadcast message complete !
-2023-04-19 19:13:40: Receive a message from NHUT: ok
-2023-04-19 19:13:40: Broadcast message complete !
-2023-04-19 19:13:46: Receive a message from MINH: i'm leave now
-2023-04-19 19:13:46: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:14:18: Received a Like Request
-2023-04-19 19:14:29: Receive a message from MINH: i'm leave now
-2023-04-19 19:14:29: Broadcast message complete !
-2023-04-19 19:14:37: Receive a message from HAO: bye
-2023-04-19 19:14:37: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:14:52: Received a Like Request
-2023-04-19 19:14:52: User can't like message himself!
-2023-04-19 19:14:57: Received a Like Request
-2023-04-19 19:15:27: Receive a message from HAO: bye
-2023-04-19 19:15:27: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:15:38: Receive a message from MINH: bye
-2023-04-19 19:15:38: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:15:43: Receive a message from KHOI: bye
-2023-04-19 19:15:43: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:15:53: Receive a message from LAN: bye all
-2023-04-19 19:15:53: Message isn't broadcast because sender's previous message isn't liked enough!
-2023-04-19 19:16:01: Received a Like Request
-2023-04-19 19:16:11: Received a Like Request
-2023-04-19 19:16:11: User can't like message himself!
-2023-04-19 19:16:15: Received a Like Request
-2023-04-19 19:16:20: Received a Like Request
-2023-04-19 19:16:22: Received a Like Request
-2023-04-19 19:16:22: User can't like message himself!
-2023-04-19 19:16:30: Received a Like Request
-2023-04-19 19:16:32: Received a Like Request
-2023-04-19 19:16:32: Sender had liked this message!
-2023-04-19 19:17:00: A member has left chat!
-2023-04-19 19:17:05: A member has left chat!
-2023-04-19 19:17:09: A member has left chat!
-2023-04-19 19:17:12: A member has left chat!
-2023-04-19 19:17:16: A member has left chat!
+2023-04-19 21:23:01: Receive a message from KHOI: 
+2023-04-19 21:23:01: KHOI join chat!
+2023-04-19 21:23:13: Receive a message from LAN: 
+2023-04-19 21:23:13: LAN join chat!
+2023-04-19 21:23:18: Receive a message from NHUT: 
+2023-04-19 21:23:19: NHUT join chat!
+2023-04-19 21:23:22: Receive a message from HUY: 
+2023-04-19 21:23:22: HUY join chat!
+2023-04-19 21:23:26: Receive a message from DUNG: 
+2023-04-19 21:23:26: DUNG join chat!
+2023-04-19 21:28:16: Receive a message from KHOI: hi all!
+2023-04-19 21:28:17: Broadcast message complete !
+2023-04-19 21:32:17: Receive a message from LAN: hello
+2023-04-19 21:32:17: Broadcast message complete !
+2023-04-19 21:36:18: Receive a message from KHOI: I'm KHOI and i try to send another message!
+2023-04-19 21:36:18: Message isn't broadcast because sender's previous message isn't liked enough!
+2023-04-19 21:39:36: Received a Like Request
+2023-04-19 21:39:49: Received a Like Request
+2023-04-19 21:51:49: Receive a message from KHOI: I'm KHOI, thanks for like my message!
+2023-04-19 21:51:49: Broadcast message complete !
+2023-04-19 21:57:11: Received a Like Request
+2023-04-19 21:57:11: Sender had liked this message!
+2023-04-19 21:57:40: Received a Like Request
+2023-04-19 21:57:40: User can't like message himself!
+2023-04-19 21:59:41: A member has left chat!
+2023-04-19 21:59:47: A member has left chat!
+2023-04-19 21:59:51: A member has left chat!
+2023-04-19 21:59:55: A member has left chat!
+2023-04-19 21:59:59: A member has left chat!
