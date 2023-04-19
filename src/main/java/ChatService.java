@@ -34,12 +34,14 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
     @Override
     public synchronized StreamObserver<ChatServiceOuterClass.ChatMessageRequest> sendChat(StreamObserver<ChatServiceOuterClass.ServerMessageResponse> responseObserver) {
         return new StreamObserver<>() {
+            WriteLog logFile = new WriteLog();
             @Override
             public void onNext(ChatServiceOuterClass.ChatMessageRequest value) {
                 String sender = value.getClientId();
                 String content = value.getContent();
 
                 logger.info("Receive a message from " + sender + ": " + content);
+                logFile.writeLogAppend("Receive a message from " + sender + ": " + content);
 
                 int recentMessage = messages.size() + 1;
                 ChatServiceOuterClass.ServerMessageResponse response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
@@ -60,12 +62,14 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                         notLikedMessage.put(sender, recentMessage);
                         messages.add(new Message(sender, content, recentMessage));
                         logger.info("Broadcast message complete !");
+                        logFile.writeLogAppend("Broadcast message complete !");
                     } else {
                         response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
                                 .setHeader("")
                                 .setMessage("Your previous message must be liked by 2 member!")
                                 .build();
                         responseObserver.onNext(response);
+                        logFile.writeLogAppend("Message isn't broadcast because sender's previous message isn't liked enough!");
                     }
                 } else {
                     response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
@@ -79,6 +83,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                     clients.put(sender, true);
                     clientsStubs.add(responseObserver);
                     logger.info("New client!");
+                    logFile.writeLogAppend(sender + " join chat!");
                 }
             }
 
@@ -86,6 +91,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
             public void onError(Throwable t) {
                 clients.remove(responseObserver);
                 logger.info(t.getMessage());
+                logFile.writeLogAppend(t.getMessage());
             }
 
             @Override
@@ -93,6 +99,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                 responseObserver.onCompleted();
                 clients.remove(responseObserver);
                 logger.info("Close a stub!");
+                logFile.writeLogAppend("A member has left chat!");
             }
         };
     }
@@ -101,13 +108,17 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
     public void sendLike(ChatServiceOuterClass.LikeRequest request, StreamObserver<ChatServiceOuterClass.ServerMessageResponse> responseObserver) {
         String sender = request.getSender();
         int message_id = request.getMessageNumber();
+        Boolean likeAccepted = false;
+        WriteLog logFile = new WriteLog();
 
+        logFile.writeLogAppend("Received a Like Request");
         if (message_id > messages.size() || message_id < 1) {
             ChatServiceOuterClass.ServerMessageResponse response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
                     .setMessage("Message ID not found !")
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+            logFile.writeLogAppend("Message ID not found !");
             return;
         }
 
@@ -120,7 +131,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                             .build();
                     responseObserver.onNext(response);
                     logger.info("User can't like a message 2 times!");
-
+                    logFile.writeLogAppend("Sender had liked this message!");
                 } else {
                     message.whosLiked.add(sender);
                     ChatServiceOuterClass.ServerMessageResponse response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
@@ -129,6 +140,7 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                     for (StreamObserver<ChatServiceOuterClass.ServerMessageResponse> client : clientsStubs) {
                         client.onNext(response);
                     }
+                    likeAccepted = true;
                 }
             } else {
                 ChatServiceOuterClass.ServerMessageResponse response = ChatServiceOuterClass.ServerMessageResponse.newBuilder()
@@ -136,10 +148,11 @@ public class ChatService extends ChatServiceGrpc.ChatServiceImplBase {
                         .build();
                 responseObserver.onNext(response);
                 logger.info("User can't like message himself!");
+                logFile.writeLogAppend("User can't like message himself!");
             }
         }
 
-        if (notLikedMessage.get(message.client_id) == message_id) {
+        if (notLikedMessage.get(message.client_id) == message_id && likeAccepted) {
             if (message.whosLiked.size() == 2) {
                 clients.put(message.client_id, true);
                 notLikedMessage.remove(message.client_id);

@@ -1,5 +1,4 @@
 import io.grpc.ServerBuilder;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
@@ -49,12 +48,15 @@ public class Server {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Server server = new Server(1234);
+        WriteLog logFile = new WriteLog();
+        logFile.writeNewLog("");
 
         try {
             server.start();
             server.blocUntilShutdown();
         } finally {
             server.stop();
+            logFile.writeLogAppend("Server is closed!");
         }
     }
 }
