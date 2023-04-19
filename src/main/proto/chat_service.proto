@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package service;
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+//message ChatMessage {
+//  string user_name = 1;
+//  string message = 2;
+//}
+//
+//message ChatFromServer {
+//  google.protobuf.Timestamp timestamp = 1;
+//  ChatMessage message = 2;
+//}
+//
+//service ChatService {
+//  rpc SendChatMessage(stream ChatMessage) returns (stream ChatFromServer) {};
+//}
+
+message ServerMessageResponse {
+  string header = 1;
+  string message = 2;
+}
+
+message ChatMessageRequest {
+  string client_id = 1;
+  string content = 2;
+}
+
+message LikeRequest {
+  string sender = 1;
+  uint32 messageNumber = 2;
+}
+
+service ChatService {
+  rpc sendChat(stream ChatMessageRequest) returns (stream ServerMessageResponse) {};
+  rpc sendLike(LikeRequest) returns (ServerMessageResponse) {};
+}
